@@ -1,0 +1,13 @@
+-ns_output
+-N 64
+
+-iga_view_detail
+-ksp_rtol 1E-5
+-ksp_converged_reason
+-snes_linesearch_type bt
+-snes_rtol 1e-3
+-snes_stol 1e-2
+-snes_atol 5E-6
+-snes_converged_reason
+-snes_monitor
+-snes_max_it 20
