@@ -1,5 +1,7 @@
 #include "petiga.h"
 
+// this code is extracted from /petiga/demo but I have made some minor changes in this code
+
 typedef struct {
   PetscReal   nu;
   PetscScalar fx,fy,fz;

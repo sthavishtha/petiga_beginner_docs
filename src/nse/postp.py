@@ -1,7 +1,6 @@
 # a multi-threaded code which postprocesses the *.dat files for visualization
 # run as :
-# module load anaconda/5.1.0-py36 (igakit already installed in this anaconda folder)
-# python3 2ph_poroel_plot.py 
+# python3 postp.py 
 
 from igakit.io import PetIGA,VTK
 from numpy import linspace, zeros

@@ -15,11 +15,11 @@ cubical box. The strong form of this problem can be expressed as follows: find t
 
    \begin{align}
       \nabla \cdot \mathbf{P} &= 0 \quad \text{in} \ \Omega, \\
-      \mathbf{U} &= \mathbf{G} \quad \text{on} \ \Gamma_D, \\
-      \mathbf{P} \cdot \mathbf{N} &= 0 \quad \text{on} \ \Gamma_N,
+      \mathbf{U} &= \mathbf{g} \quad \text{on} \ \Gamma_D, \\
+      \mathbf{P} \cdot \mathbf{n} &= 0 \quad \text{on} \ \Gamma_N,
    \end{align}
 
-where :math:`\mathbf{P}` is the first Piola-Kirchhoff stress tensor, :math:`\mathbf{G}` is the prescribed displacement on the Dirichlet boundary :math:`\Gamma_D`, :math:`\mathbf{N}` is the outward normal of the Neumann boundary :math:`\Gamma_N` defined in the reference configuration of the domain. In our material model, the second Piola-Kirchhoff stress tensor :math:`\mathbf{S}` is related to the right Cauchy-Green strain tensor :math:`\mathbf{C}` by the relationship
+where :math:`\mathbf{P}` is the first Piola-Kirchhoff stress tensor, :math:`\mathbf{g}` is the prescribed displacement on the Dirichlet boundary :math:`\Gamma_D`, :math:`\mathbf{n}` is the outward normal of the Neumann boundary :math:`\Gamma_N` defined in the reference configuration of the domain. In our material model, the second Piola-Kirchhoff stress tensor :math:`\mathbf{S}` is related to the right Cauchy-Green strain tensor :math:`\mathbf{C}` by the relationship
 
 .. math::
 
@@ -27,7 +27,7 @@ where :math:`\mathbf{P}` is the first Piola-Kirchhoff stress tensor, :math:`\mat
 
 where :math:`\mathbf{C} = \mathbf{F}^T \mathbf{F}` is the right Cauchy-Green deformation tensor, :math:`\mathbf{F}` is the deformation gradient, :math:`J = \det(\mathbf{F})`, and :math:`\lambda, \mu` are the Lamé constants from linear elasticity. The first Piola-Kirchhoff stress tensor is defined by :math:`\mathbf{P} = \mathbf{F} \mathbf{S}` and the symmetry condition :math:`\mathbf{P}^T \mathbf{F} = \mathbf{F}^T \mathbf{P}` holds.
 
-We solve the linearized weak form of the equations given by :eq:`eqn_solid_mechanics` in an updated-Lagrangian approach; see the code-snippet below in :file:`src/hyperelastic/HyperElasticity.c` for its implementation. 
+We solve the linearized weak form of the equations given by :eq:`eqn_solid_mechanics` in an updated-Lagrangian approach; see the code-snippet below (in :file:`src/hyperelastic/HyperElasticity.c`) for its implementation. 
 
 .. _code-snippet:
 
@@ -63,7 +63,7 @@ We solve the linearized weak form of the equations given by :eq:`eqn_solid_mecha
       ierr = IGAWriteVec(iga,Utotal,filename);CHKERRQ(ierr);
    }
 
-We consider the domain to be a rectangular box discretized with a mesh of 32 x 32 x 32 quadratic B-spline functions. The right side of the box is fixed and the left side is displaced to the left over 15 load steps. We run the code :file:`src/hyperelastic/HyperElasticity.c` by passing the parameters in :file:`src/hyperelastic/params.txt` to the executable as follows: ``mpirun ./Hyperelasticity -options_file params.txt > output.o``. The output of the code is the displacement field of the box in the deformed configuration (see below), which can be visualized via the python script :file:`src/hyperelastic/postp.py` after installing `IGAKIT`_. 
+We consider the domain to be a rectangular box discretized with a mesh of 32 x 32 x 32 quadratic B-spline functions. The right side of the box is fixed and the left side is displaced to the left over 15 load steps. We run the code :file:`src/hyperelastic/HyperElasticity.c` by passing the parameters in :file:`src/hyperelastic/params.txt` to the executable as follows: ``mpirun ./Hyperelasticity -options_file params.txt > output.o``. The output of the code is the displacement field of the box in the deformed configuration (see below), which can be visualized via the python script :file:`src/hyperelastic/postp.py` that uses the `IGAKIT`_ library. 
 
 .. _disp_xyz:
 
