@@ -10,6 +10,11 @@ For more information, please refer to:
 - `PetIGA paper reference <https://doi.org/10.1016/j.cma.2016.05.011>`_
 - `PetIGA-MF paper reference <https://doi.org/10.1016/j.jocs.2016.09.010>`_
 
+Additional capabilities of PetIGA:
+
+- `Multi-component fluid-structure interaction with non-linear elastic solid <https://doi.org/10.1016/j.cma.2022.115507>`_
+- `Multi-component fluid-structure interaction with anisotropic solid <https://doi.org/10.48550/arXiv.2310.08113>`_
+
 .. Local Variables:
 .. mode: rst
 .. End:
